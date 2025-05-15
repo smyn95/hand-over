@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 
+import Header from '@/components/layout/Header';
+
 import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
 import '../styles/globals.css';
 
@@ -22,7 +24,10 @@ export default function RootLayout(props: Readonly<Props>) {
 
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

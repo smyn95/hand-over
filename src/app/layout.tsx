@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SessionProvider } from 'next-auth/react';
 
 import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
 import '../styles/globals.css';
@@ -22,7 +23,9 @@ export default function RootLayout(props: Readonly<Props>) {
 
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <SessionProvider>
+        <body className="antialiased">{children}</body>
+      </SessionProvider>
     </html>
   );
 }

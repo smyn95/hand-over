@@ -1,9 +1,3 @@
-import LoginForm from '@/widgets/login/LoginForm';
-
 export default function Home() {
-  return (
-    <>
-      <LoginForm />
-    </>
-  );
+  return <main>Home </main>;
 }

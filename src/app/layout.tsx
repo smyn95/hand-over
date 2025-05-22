@@ -3,6 +3,9 @@ import { SessionProvider } from 'next-auth/react';
 
 import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
 import '../styles/globals.css';
+import Container from '@/shared/Container';
+import Footer from '@/shared/layout/Footer';
+import Header from '@/shared/layout/Header';
 
 type Props = {
   children: React.ReactNode;
@@ -24,7 +27,13 @@ export default function RootLayout(props: Readonly<Props>) {
   return (
     <html lang="en">
       <SessionProvider>
-        <body className="antialiased">{children}</body>
+        <body className="antialiased">
+          <Header />
+          <section className="flex min-h-screen flex-col">
+            <Container>{children}</Container>
+            <Footer />
+          </section>
+        </body>
       </SessionProvider>
     </html>
   );

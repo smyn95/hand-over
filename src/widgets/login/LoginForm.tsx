@@ -57,7 +57,7 @@ const LoginForm = () => {
   ];
 
   return (
-    <form action={doSocialLogin} className="w-96 space-y-3">
+    <form action={doSocialLogin} className="flex w-full flex-col gap-3">
       {socialButtons.map(button => (
         <SocialButton key={button.provider} {...button} />
       ))}

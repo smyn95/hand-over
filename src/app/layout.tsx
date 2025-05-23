@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { SessionProvider } from 'next-auth/react';
 
-import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
-import '../styles/globals.css';
+import AuthProvider from '@/provider/AuthProvider';
 import Container from '@/shared/Container';
 import Footer from '@/shared/layout/Footer';
 import Header from '@/shared/layout/Header';
+import 'pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css';
+import '../styles/globals.css';
 
 type Props = {
   children: React.ReactNode;
@@ -26,15 +26,15 @@ export default function RootLayout(props: Readonly<Props>) {
 
   return (
     <html lang="en">
-      <SessionProvider>
-        <body className="antialiased">
+      <body className="antialiased">
+        <AuthProvider>
           <Header />
           <section className="flex min-h-screen flex-col">
             <Container>{children}</Container>
             <Footer />
           </section>
-        </body>
-      </SessionProvider>
+        </AuthProvider>
+      </body>
     </html>
   );
 }

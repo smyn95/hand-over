@@ -60,6 +60,7 @@ export const config: NextAuthConfig = {
     },
   },
   debug: true,
+  trustHost: true,
 };
 
-export const { handlers, signIn, signOut } = NextAuth(config);
+export const { handlers, signIn, signOut, auth } = NextAuth(config);
